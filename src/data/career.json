@@ -1,10 +1,9 @@
 [
   {
-    "company": "Demo Company",
-    "role": "Lead Software Engineer",
-    "period": "Oct 2025 - Present",
+    "company": "LCK CONSULTORES",
+    "role": "Prácticas Profesionales",
+    "period": "Mayo 2025 - Mayo 2026",
     "type": "Full time job",
-    "description": "Leading cross-platform mobile development using Flutter and FastAPI. Focused on scalable system design and high-performance data processing.",
-    "skills": ["Leading", "Collaboration"]
-  }
+    "description": "Desarrollo de proyectos enfocados en plataformas web y sistemas de control documental"
+   }  
 ]
