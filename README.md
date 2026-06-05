@@ -7,7 +7,7 @@ Live Demo: [careerportofio.netlify.app](https://careerportofio.netlify.app)
 
 A high-performance, responsive portfolio built with **Astro**, **Tailwind CSS**, and **Native Browser Animations**. Designed to be 100% data-driven and easy to customize as a reusable template.
 
-## 🌟 Highlights
+##  Highlights
 - **Zero-JS by Default:** Leveraging Astro's islands architecture.
 - **JSON-First:** Update your information in `src/data/` without touching any code.
 - **Built-in Themes**: Switch between multiple professional color palettes and light/dark modes from a single config file.
