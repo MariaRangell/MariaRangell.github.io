@@ -9,7 +9,7 @@
       "Carga y administración de documentos por área",
       "Recuperación de contraseña con notificación al administrador"
     ],
-    "images": ["paginaweb.jpg"],
+    "images": ["paginaweb.png"],
     "tech": ["TypeScript", "HTML", "JavaScript", "CSS"],
     "platforms": ["web"],
     "link": "https://github.com/MariaRangell/sistema-control-documental-lck",
