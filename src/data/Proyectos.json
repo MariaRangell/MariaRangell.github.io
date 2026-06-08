@@ -2,19 +2,40 @@
   {
     "title": "Sistema de Control Documental",
     "description": "Sistema web para cargar, gestionar y administrar documentos internos por áreas departamentales con control de acceso por login. Desarrollado para LCK Consultores.",
+    "fullDescription": "Sistema desarrollado para LCK Consultores que permite cargar, organizar y administrar documentación interna. Cuenta con autenticación por login y acceso segmentado a cinco áreas: Empresa, Recursos Humanos, Auditoría, Clientes y Proveedores.",
+    "features": [
+      "Autenticación con login por usuario y contraseña",
+      "5 áreas departamentales: Empresa, RH, Auditoría, Clientes, Proveedores",
+      "Carga y administración de documentos por área",
+      "Recuperación de contraseña con notificación al administrador"
+    ],
     "images": ["captura 1.png", "captura 2.png"],
     "tech": ["TypeScript", "HTML", "JavaScript", "CSS"],
     "platforms": ["web"],
     "link": "https://github.com/MariaRangell/sistema-control-documental-lck",
-    "category": "Sistema Web"
+    "category": "Sistema Web",
+    "status": "Local",
+    "year": "2025",
+    "role": "Fullstack"
   },
   {
     "title": "Sitio Web LCK Consultores",
     "description": "Sitio web corporativo desarrollado con WordPress y el constructor visual Divi. Incluye secciones de servicios, contacto y presentación de la empresa.",
+    "fullDescription": "Sitio web corporativo desarrollado con WordPress usando el page builder Divi. Diseño responsivo con secciones de presentación, servicios, equipo y contacto.",
+    "features": [
+      "Diseño responsivo para móvil y escritorio",
+      "Secciones de servicios y contacto",
+      "Constructor visual con Divi",
+      "Gestión de contenido con WordPress"
+    ],
     "images": ["wordpress-01.png"],
     "tech": ["WordPress", "Divi", "CSS"],
     "platforms": ["web"],
     "link": "https://lckmx.com/",
-    "category": "Published Website"
+    "demoLink": "https://lckmx.com/",
+    "category": "Published Website",
+    "status": "Publicado",
+    "year": "2025",
+    "role": "Desarrolladora Web"
   }
 ]
