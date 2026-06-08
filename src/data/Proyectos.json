@@ -1,20 +1,20 @@
 [
   {
     "title": "Sistema de Control Documental",
-    "description": "A high-performance, SEO-optimized web application built with modern frameworks to showcase technical expertise.",
-    "images": ["astro-01.webp", "astro-02.jpeg"],
-    "tech": ["Astro", "Tailwind"],
+    "description": "Sistema web para cargar, gestionar y administrar documentos internos por áreas departamentales con control de acceso por login. Desarrollado para LCK Consultores.",
+    "images": ["captura 1.png", "captura 2.png"],
+    "tech": ["TypeScript", "HTML", "JavaScript", "CSS"],
     "platforms": ["web"],
-    "link": "https://astro.build/themes/details/career-portfolio-data-driven-astro-ssg/",
-    "category": "Published Website"
+    "link": "https://github.com/MariaRangell/sistema-control-documental-lck",
+    "category": "Sistema Web"
   },
   {
-    "title": "Demo Mobile App",
-    "description": "A high-performance mobile application built with modern frameworks to showcase technical expertise.",
-    "images": ["astro-02.jpeg", "#"],
-    "tech": ["Flutter", "Dart", "REST API"],
-    "platforms": ["apple-ios", "android"],
-    "link": "https://github.com/nbakh16/career-portfolio-template",
-    "category": "Hobby"
+    "title": "Sitio Web LCK Consultores",
+    "description": "Sitio web corporativo desarrollado con WordPress y el constructor visual Divi. Incluye secciones de servicios, contacto y presentación de la empresa.",
+    "images": ["wordpress-01.png"],
+    "tech": ["WordPress", "Divi", "CSS"],
+    "platforms": ["web"],
+    "link": "https://lckmx.com/",
+    "category": "Published Website"
   }
 ]
