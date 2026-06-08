@@ -4,7 +4,6 @@ const { project } = Astro.props;
 import { Image } from 'astro:assets';
 import { resolveAssetImage } from '../utils/images';
 
-// Map through the array of image strings from project JSON
 const optimizedImages = await Promise.all(
   project.images.map(async (imgName: string) => {
     return await resolveAssetImage(imgName);
@@ -12,11 +11,11 @@ const optimizedImages = await Promise.all(
 );
 
 const validImages = optimizedImages.filter(Boolean);
-
 const isSlider = validImages.length > 1;
+const modalId = `modal-${project.title.replace(/\s+/g, '-').toLowerCase()}`;
 ---
 
-<div class="project-card group relative bg-accent/5 border border-accent/10 rounded-2xl overflow-hidden hover:border-accent/40 transition-all duration-500">
+<div class="project-card group relative bg-accent/5 border border-accent/10 rounded-2xl overflow-hidden hover:border-accent/40 transition-all duration-500 cursor-pointer" onclick={`document.getElementById('${modalId}').showModal()`}>
   <div class="aspect-video overflow-hidden relative bg-background/50">
     <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
     
@@ -31,7 +30,6 @@ const isSlider = validImages.length > 1;
             />
           ))
         ) : (
-          /* Fallback box if array is empty or filenames are missing */
           <img
             src="/placeholder.jpeg"
             alt={`${project.title} placeholder`}
@@ -40,7 +38,7 @@ const isSlider = validImages.length > 1;
         )
       }
     </div>
-    
+
     <div class="absolute top-3 right-3 flex gap-2 z-20">
       {project.platforms.map((p: string) => (
         <div class="p-1.5 bg-background backdrop-blur-md rounded-lg border border-accent/10 text-maintext">
@@ -56,9 +54,9 @@ const isSlider = validImages.length > 1;
         <span class="text-accent text-[10px] uppercase tracking-widest font-bold">{project.category}</span>
         <h3 class="text-xl font-heading font-bold text-maintext mt-1">{project.title}</h3>
       </div>
-      <a href={project.link} target="_blank" class="text-accent/75 hover:text-accent transition-colors">
+      <span class="text-accent/75">
         <Icon name="mdi:open-in-new" class="w-6 h-6" />
-      </a>
+      </span>
     </div>
 
     <p class="text-subtext text-sm font-body line-clamp-3">
@@ -67,7 +65,7 @@ const isSlider = validImages.length > 1;
 
     <div class="flex flex-wrap gap-2 pt-2">
       {project.tech.map((t: string) => (
-        <span class="rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80  group-hover:border-accent/40 group-hover:text-accent">
+        <span class="rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80 group-hover:border-accent/40 group-hover:text-accent">
           {t}
         </span>
       ))}
@@ -75,24 +73,104 @@ const isSlider = validImages.length > 1;
   </div>
 </div>
 
+<!-- Modal ficha técnica -->
+<dialog id={modalId} class="modal-ficha backdrop:bg-black/70 bg-transparent p-0 max-w-lg w-full rounded-2xl">
+  <div class="bg-[#0d1117] border border-white/10 rounded-2xl overflow-hidden">
+    
+    <!-- Header -->
+    <div class="bg-[#161b22] border-b border-white/10 p-5 flex justify-between items-start">
+      <div>
+        <span class="text-accent text-[10px] uppercase tracking-widest font-bold">{project.category}</span>
+        <h2 class="text-white text-lg font-bold mt-1">{project.title}</h2>
+      </div>
+      <button onclick={`document.getElementById('${modalId}').close()`} class="text-white/40 hover:text-white border border-white/10 rounded-lg px-2 py-1 text-sm transition-colors">✕</button>
+    </div>
+
+    <!-- Metadata -->
+    <div class="p-5">
+      <div class="grid grid-cols-2 gap-3 mb-5">
+        <div class="bg-[#161b22] border border-white/10 rounded-lg p-3">
+          <p class="text-white/40 text-[10px] uppercase tracking-wider">Tipo</p>
+          <p class="text-white text-sm font-medium mt-1">{project.category}</p>
+        </div>
+        <div class="bg-[#161b22] border border-white/10 rounded-lg p-3">
+          <p class="text-white/40 text-[10px] uppercase tracking-wider">Estado</p>
+          <p class="text-sm font-medium mt-1">
+            <span class="inline-flex items-center gap-1.5 bg-green-900/30 text-green-400 border border-green-800/40 rounded-full px-2.5 py-0.5 text-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+              {project.status ?? 'Local'}
+            </span>
+          </p>
+        </div>
+        <div class="bg-[#161b22] border border-white/10 rounded-lg p-3">
+          <p class="text-white/40 text-[10px] uppercase tracking-wider">Año</p>
+          <p class="text-white text-sm font-medium mt-1">{project.year ?? '2025'}</p>
+        </div>
+        <div class="bg-[#161b22] border border-white/10 rounded-lg p-3">
+          <p class="text-white/40 text-[10px] uppercase tracking-wider">Rol</p>
+          <p class="text-white text-sm font-medium mt-1">{project.role ?? 'Fullstack'}</p>
+        </div>
+      </div>
+
+      <!-- Descripción -->
+      <div class="mb-4">
+        <p class="text-white/40 text-[10px] uppercase tracking-wider mb-2">Descripción</p>
+        <p class="text-white/80 text-sm leading-relaxed">{project.fullDescription ?? project.description}</p>
+      </div>
+
+      <!-- Funcionalidades -->
+      {project.features && project.features.length > 0 && (
+        <div class="mb-4">
+          <p class="text-white/40 text-[10px] uppercase tracking-wider mb-2">Funcionalidades</p>
+          <ul class="space-y-1.5">
+            {project.features.map((f: string) => (
+              <li class="text-white/80 text-sm flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <!-- Tecnologías -->
+      <div class="mb-5">
+        <p class="text-white/40 text-[10px] uppercase tracking-wider mb-2">Tecnologías</p>
+        <div class="flex flex-wrap gap-2">
+          {project.tech.map((t: string) => (
+            <span class="text-xs bg-accent/10 text-accent border border-accent/20 rounded-full px-3 py-1">{t}</span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Footer botones -->
+      <div class="flex gap-3 pt-2 border-t border-white/10">
+        <a href={project.link} target="_blank" class="flex-1 flex items-center justify-center gap-2 text-sm text-white/60 hover:text-white border border-white/10 hover:border-white/30 rounded-lg py-2.5 transition-colors">
+          <Icon name="mdi:github" class="w-4 h-4" />
+          Ver repositorio
+        </a>
+        {project.demoLink && (
+          <a href={project.demoLink} target="_blank" class="flex-1 flex items-center justify-center gap-2 text-sm bg-accent text-background font-medium rounded-lg py-2.5 hover:opacity-90 transition-opacity">
+            <Icon name="mdi:web" class="w-4 h-4" />
+            Ver demo
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <script>
   function initSliders() {
     const sliders = document.querySelectorAll('.image-slider');
-    
     sliders.forEach(slider => {
       const images = slider.querySelectorAll('img');
       if (images.length <= 1) return;
-
       let currentIndex = 0;
       setInterval(() => {
-        // Hide current
         images[currentIndex].classList.remove('opacity-100', 'z-0');
         images[currentIndex].classList.add('opacity-0', 'z-[-1]');
-        
-        // Move to next
         currentIndex = (currentIndex + 1) % images.length;
-        
-        // Show next
         images[currentIndex].classList.remove('opacity-0', 'z-[-1]');
         images[currentIndex].classList.add('opacity-100', 'z-0');
       }, 3500);
@@ -101,6 +179,13 @@ const isSlider = validImages.length > 1;
 
   initSliders();
   document.addEventListener('astro:after-swap', initSliders);
+
+  // Cerrar modal al hacer clic fuera
+  document.querySelectorAll('.modal-ficha').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) (modal as HTMLDialogElement).close();
+    });
+  });
 </script>
 
 <style is:global>
@@ -119,5 +204,14 @@ const isSlider = validImages.length > 1;
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) !important;
+  }
+
+  .modal-ficha {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
   }
 </style>
