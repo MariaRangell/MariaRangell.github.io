@@ -22,7 +22,7 @@
       "title": "Database",
       "skills": [
         { "name": "SQLite", "level": 3, "icon": "skill-icons:sqlite" },
-        { "name": "SQL Server", "level": 2, "icon": "skill-icons:sqlserver" }
+        { "name": "SQL Server", "level": 2, "icon": "skill-icons:mysql-dark" }
       ]
     }
   ]
