@@ -9,7 +9,7 @@
       "Carga y administración de documentos por área",
       "Recuperación de contraseña con notificación al administrador"
     ],
-    "images": ["pagina-lck.png"],
+    "images": ["sistema-lck.png"],
     "tech": ["TypeScript", "HTML", "JavaScript", "CSS"],
     "platforms": ["web"],
     "link": "https://github.com/MariaRangell/sistema-control-documental-lck",
@@ -28,7 +28,7 @@
       "Constructor visual con Divi",
       "Gestión de contenido con WordPress"
     ],
-    "images": ["sistema-lck.png"],
+    "images": ["pagina-lck.png"],
     "tech": ["WordPress", "Divi", "CSS"],
     "platforms": ["web"],
     "link": "https://lckmx.com/",
