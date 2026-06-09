@@ -1,6 +1,6 @@
 {
   "categories": [
-    
+
     {
       "title": "Frontend",
       "skills": [
@@ -22,7 +22,7 @@
       "title": "Database",
       "skills": [
         { "name": "SQLite", "level": 3, "icon": "skill-icons:sqlite" },
-        { "name": "SQL Server", "level": 2, "icon": "skill-icons:mssqlserver" }
+        { "name": "SQL Server", "level": 2, "icon": "simple-icons:microsoftsqlserver" }
       ]
     }
   ]
