@@ -41,11 +41,11 @@
   /* Default Theme - Dark */
   :root,
   [data-theme="default-dark"] {
-    --color-background: #1a0a14;
-    --color-accent: #F472B6;
+    --color-background: #120818;
+    --color-accent: #F9A8D4;
     --color-maintext: #FFFFFF;
-    --color-subtext: #e2b4cc;
-    --color-textrain: #9c6b82;
+    --color-subtext: #f0c0d8;
+    --color-textrain: #a05070;
   }
 
   /* Default Theme - Light */
