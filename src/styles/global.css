@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import '@fontsource-variable/space-grotesk';
 @import '@fontsource-variable/inter';
+@import '@fontsource-variable/poppins';
 
 @theme {
   /* Base Colors - Theme used in @layer base{...} */
@@ -11,8 +12,8 @@
   --color-textrain: #7d7b9c;
 
   /* Fonts */
-  --font-heading: "Space Grotesk Variable", sans-serif;
-  --font-body: "Inter Variable", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
 
   /* Custom Animations */
   --animate-fall: fall linear forwards;
